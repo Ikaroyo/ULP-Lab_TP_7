@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Vistas;
 
 import Clases.Alumno;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Ikaros
- */
 public class AlumnosVista extends javax.swing.JInternalFrame {
 
     /**
@@ -139,7 +131,7 @@ public class AlumnosVista extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal.listaAlumnos.add(new Alumno(Integer.parseInt(jtLegajo.getText()), jtApellido.getText(), jtNombre.getText()));
+        Colegio.alumnos.add(new Alumno(Integer.parseInt(jtLegajo.getText()), jtApellido.getText(), jtNombre.getText()));
         JOptionPane.showMessageDialog(this, "Alumno "+jtApellido.getText()+" "+jtNombre.getText()+" agregado ");
 
     }//GEN-LAST:event_jButton3ActionPerformed

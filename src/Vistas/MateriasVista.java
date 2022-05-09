@@ -141,7 +141,7 @@ public class MateriasVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        MenuPrincipal.listaMaterias.add(new Materia(Integer.parseInt(jtCodigomateria.getText()), jtNombremateria.getText(), Integer.parseInt(jtAnio.getText())));
+        Colegio.materias.add(new Materia(Integer.parseInt(jtCodigomateria.getText()), jtNombremateria.getText(), Integer.parseInt(jtAnio.getText())));
         JOptionPane.showMessageDialog(this, "Materia " + jtNombremateria.getText() +", con ID: "+jtCodigomateria.getText()+", que corresponde al año "+jtAnio.getText()+ ", agregada correctamente.");
     }//GEN-LAST:event_jButton2ActionPerformed
 

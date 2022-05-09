@@ -4,12 +4,12 @@ import Clases.Alumno;
 import Clases.Materia;
 import java.util.HashSet;
 
-public class MenuPrincipal extends javax.swing.JFrame {
+public class Colegio extends javax.swing.JFrame {
 
-    public static final HashSet<Alumno> listaAlumnos = new HashSet<>();
-    public static final HashSet<Materia> listaMaterias = new HashSet<>();
-
-    public MenuPrincipal() {
+    public static final HashSet<Alumno> alumnos = new HashSet<>();
+    public static final HashSet<Materia> materias = new HashSet<>();
+    
+    public Colegio() {
         initComponents();
         setLocationRelativeTo(null);
         setSize(800, 600);
@@ -20,13 +20,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void inicializarValores() {
         //a) Crear las materias://
-        listaMaterias.add(new Materia(1, "Ingles I", 1));
-        listaMaterias.add(new Materia(2, "Matematica I", 1));
-        listaMaterias.add(new Materia(3, "Laboratorio I", 1));
+        materias.add(new Materia(1, "Ingles I", 1));
+        materias.add(new Materia(2, "Matematica I", 1));
+        materias.add(new Materia(3, "Laboratorio I", 1));
         
         //b) Crear 2 alumnos://        
-        listaAlumnos.add(new Alumno(1001, "Lopez", "Martin"));
-        listaAlumnos.add(new Alumno(1002, "Martinez", "Brenda"));
+        alumnos.add(new Alumno(1001, "Lopez", "Martin"));
+        alumnos.add(new Alumno(1002, "Martinez", "Brenda"));
         
     }
 
@@ -163,6 +163,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInscripcionActionPerformed
         escritorio.removeAll();
+      
         InscripcionesVista agregar = new InscripcionesVista();
         agregar.setVisible(true);
         escritorio.add(agregar);
@@ -200,20 +201,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new Colegio().setVisible(true);
             }
         });
     }

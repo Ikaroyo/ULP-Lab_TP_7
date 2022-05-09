@@ -1,43 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Vistas;
 
 import Clases.Alumno;
 import Clases.Materia;
-//import static Vistas.MenuPrincipal.lista;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Ikaros
- */
 public class InscripcionesVista extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form InscripcionesVista
-     */
+    private final HashSet<Alumno> alumnos;
+    private final HashSet<Materia> materias;
+    
     public InscripcionesVista() {
         initComponents();
-        cargarValores();
+        this.alumnos = Colegio.alumnos;
+        this.materias = Colegio.materias;
+        agregarAlumno();
+        agregarMateria();
     }
 
-    private void cargarValores() {
-        jComboAlumnos.removeAllItems();
-        jComboMaterias.removeAllItems();
+        private void agregarAlumno() {
+        for (Alumno a1 : alumnos) {
 
-        for (Alumno alumno : MenuPrincipal.listaAlumnos) {
-
-            jComboAlumnos.addItem(alumno.getApellido());
+            jComboAlumnos.addItem(a1);
 
         }
 
-        for (Materia materia : MenuPrincipal.listaMaterias) {
+    }
+    
+        private void agregarMateria() {
+        for (Materia m1 : materias) {
 
-            jComboMaterias.addItem(materia.getNombre());
+            jComboMaterias.addItem(m1);
 
         }
-
     }
 
     /**
@@ -51,15 +46,11 @@ public class InscripcionesVista extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboMaterias = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jComboAlumnos = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jtIdMateria = new javax.swing.JTextField();
+        jComboMaterias = new javax.swing.JComboBox<>();
+        jComboAlumnos = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Formulario de Inscripcion");
@@ -67,12 +58,8 @@ public class InscripcionesVista extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("ELIJA UNA MATERIA:");
 
-        jComboMaterias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("ELIJA UN ALUMNO:");
-
-        jComboAlumnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("Inscribir");
@@ -90,48 +77,30 @@ public class InscripcionesVista extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setText("Año:");
-
-        jTextField1.setText("jTextField1");
-
-        jLabel3.setText("Id:");
-
-        jtIdMateria.setText("jTextField2");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(224, 224, 224)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addGap(18, 18, 18)
-                            .addComponent(jComboMaterias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(68, 68, 68)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(135, 135, 135)
-                            .addComponent(jButton4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton3))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addGap(29, 29, 29)
-                            .addComponent(jComboAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabel7)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(206, Short.MAX_VALUE))
+                        .addComponent(jComboMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3))
+                            .addComponent(jComboAlumnos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,13 +111,7 @@ public class InscripcionesVista extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jtIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -163,31 +126,27 @@ public class InscripcionesVista extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-/*        for (Alumno alumno : MenuPrincipal.listaAlumnos) {
-            if (alumno.getApellido().equals(jComboAlumnos.select) {
-                return alumno;
-            }
-        }
-*/
+
+        Alumno seleccionado = (Alumno) jComboAlumnos.getSelectedItem();
+
+        Materia seleccionada = (Materia) jComboMaterias.getSelectedItem();
+        seleccionado.agregarMateria(seleccionada);
+
+        JOptionPane.showMessageDialog(null, "Inscripción de alumno exitosa");
     }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboAlumnos;
-    private javax.swing.JComboBox<String> jComboMaterias;
+    private javax.swing.JComboBox<Alumno> jComboAlumnos;
+    private javax.swing.JComboBox<Materia> jComboMaterias;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jtIdMateria;
     // End of variables declaration//GEN-END:variables
 }

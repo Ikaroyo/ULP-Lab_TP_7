@@ -2,7 +2,7 @@ package Clases;
 
 public class Materia {
 
-    private int idMateria;
+   private int idMateria;
     private String nombre;
     private int anio;
 
@@ -40,6 +40,7 @@ public class Materia {
     public int hashCode() {
         int hash = 7;
         hash = 59 * hash + this.idMateria;
+
         return hash;
     }
 
@@ -57,18 +58,13 @@ public class Materia {
             return false;
         }
         final Materia other = (Materia) obj;
-        if (this.idMateria != other.idMateria) {
-
-            return false;
-
-        }
-
-        return true;
+        return this.idMateria == other.idMateria;
     }
 
     @Override
     public String toString() {
-        return "idMateria :" + idMateria + ", nombre :" +" "+ nombre + ", anio :" + anio + '}';
+        return (nombre);
     }
+
 
 }

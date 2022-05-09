@@ -5,11 +5,11 @@ import java.util.HashSet;
 
 public class Alumno {
 
-    private int legajo;
+ private int legajo;
     private String apellido;
     private String nombre;
-
     private HashSet<Materia> materias = new HashSet<>();
+
 
     public Alumno(int legajo, String apellido, String nombre) {
         this.legajo = legajo;
@@ -41,11 +41,11 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public HashSet<Materia> getMaterias() {
+    public HashSet<Materia> getListaAl() {
         return materias;
     }
 
-    public void setMaterias(HashSet<Materia> listaAl) {
+    public void setListaAl(HashSet<Materia> listaAl) {
         this.materias = listaAl;
     }
 
@@ -59,7 +59,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno{" + "legajo=" + legajo + ", apellido=" + apellido + ", nombre=" + nombre + ", Materias=" + materias + '}';
+        return (apellido + " " + nombre);
     }
 
 }
